@@ -2,7 +2,7 @@
     <header class="gh-canvas-header">
         <h2 class="gh-canvas-title" data-test-screen-title>Your posts</h2>
         <section class="view-actions">
-            {{#link-to "editor.new" "post" class="gh-btn gh-btn-green" data-test-new-post-button=true}}<span>New post</span>{{/link-to}}
+            {{#link-to "editor.new" "post" class="gh-btn gh-btn-green" data-test-new-post-button=true}}<span>Новый пост</span>{{/link-to}}
         </section>
     </header>
     <div class="gh-contentfilter">
@@ -98,11 +98,11 @@
                     <div class="no-posts">
                         {{#if showingAll}}
                             {{svg-jar "posts-placeholder" class="gh-posts-placeholder"}}
-                            <h3>You haven't written any posts yet!</h3>
-                            {{#link-to "editor.new" "post"}}<button type="button" class="gh-btn gh-btn-green gh-btn-lg"><span>Write a new post</span></button>{{/link-to}}
+                            <h3>Вы еще не написали ни одного поста!</h3>
+                            {{#link-to "editor.new" "post"}}<button type="button" class="gh-btn gh-btn-green gh-btn-lg"><span>Создать новый пост</span></button>{{/link-to}}
                         {{else}}
                             <h3>No posts match the current filter</h3>
-                            {{#link-to "posts.index" (query-params type=null author=null tag=null)}}<button type="button" class="gh-btn gh-btn-lg"><span>Show all posts</span></button>{{/link-to}}
+                            {{#link-to "posts.index" (query-params type=null author=null tag=null)}}<button type="button" class="gh-btn gh-btn-lg"><span>Показать все посты</span></button>{{/link-to}}
                         {{/if}}
                     </div>
                 </li>
