@@ -1,15 +1,15 @@
 <header class="modal-header" data-test-modal="new-subscriber">
-    <h1>Add a Subscriber</h1>
+    <h1>Добавить подписчика</h1>
 </header>
 {{!-- disable mouseDown so it doesn't trigger focus-out validations --}}
 <a class="close" href="" title="Close" {{action "closeModal"}} {{action (optional noop) on="mouseDown"}}>
-    {{svg-jar "close"}}<span class="hidden">Close</span>
+    {{svg-jar "close"}}<span class="hidden">Отмена</span>
 </a>
 
 <div class="modal-body">
     <fieldset>
         {{#gh-form-group errors=subscriber.errors hasValidated=subscriber.hasValidated property="email"}}
-            <label for="new-subscriber-email">Email Address</label>
+            <label for="new-subscriber-email">Email адрес</label>
             <input type="email"
                 value={{subscriber.email}}
                 oninput={{action "updateEmail" value="target.value"}}
@@ -34,7 +34,7 @@
         {{action (optional noop) on="mouseDown"}}
         data-test-button="cancel-new-subscriber"
     >
-        <span>Cancel</span>
+        <span>Отмена</span>
     </button>
     {{gh-task-button "Add"
         successText="Added"
