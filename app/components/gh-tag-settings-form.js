@@ -32,9 +32,9 @@ export default Component.extend({
 
     title: computed('tag.isNew', function () {
         if (this.get('tag.isNew')) {
-            return 'New tag';
+            return 'Новый тег';
         } else {
-            return 'Tag settings';
+            return 'Настройки тега';
         }
     }),
 
@@ -137,7 +137,7 @@ export default Component.extend({
     },
 
     focusOut() {
-        key.setScope('default');
+        key.setScope('по умолчанию');
     }
 
 });
