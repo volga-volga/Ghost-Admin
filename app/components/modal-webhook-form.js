@@ -12,8 +12,8 @@ export default ModalComponent.extend({
 
     availableEvents: null,
     error: null,
-    buttonText: 'Save',
-    successText: 'Saved',
+    buttonText: 'Сохранить',
+    successText: 'Сохранено',
 
     confirm() {},
 
@@ -26,15 +26,15 @@ export default ModalComponent.extend({
 
     didReceiveAttrs() {
         if (this.webhook.isNew) {
-            this.set('buttonText', 'Create');
-            this.set('successText', 'Created');
+            this.set('buttonText', 'Создать');
+            this.set('successText', 'Создано');
         }
     },
 
     actions: {
         selectEvent(value) {
-            this.webhook.set('event', value);
-            this.webhook.validate({property: 'event'});
+            this.webhook.set('событие', value);
+            this.webhook.validate({property: 'событие'});
         },
 
         confirm() {
@@ -43,11 +43,11 @@ export default ModalComponent.extend({
     },
 
     saveWebhook: task(function* () {
-        this.set('error', null);
+        this.set('Ошибка', null);
 
         try {
             let webhook = yield this.confirm();
-            let integration = yield webhook.get('integration');
+            let integration = yield webhook.get('интеграция');
             this.router.transitionTo('settings.integration', integration);
         } catch (error) {
             // TODO: server-side validation errors should be serialized
@@ -63,7 +63,7 @@ export default ModalComponent.extend({
                         this.webhook.errors.add(property, message);
                         this.webhook.hasValidated.pushObject(property);
                     } else {
-                        this.set('error', `Error: ${message}`);
+                        this.set('ошибка', `Error: ${message}`);
                     }
                 });
 
