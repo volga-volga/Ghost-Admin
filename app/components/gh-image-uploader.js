@@ -17,7 +17,7 @@ import {inject as service} from '@ember/service';
 
 export const IMAGE_MIME_TYPES = 'image/gif,image/jpg,image/jpeg,image/png,image/svg+xml';
 export const IMAGE_EXTENSIONS = ['gif', 'jpg', 'jpeg', 'png', 'svg'];
-export const IMAGE_PARAMS = {purpose: 'image'};
+export const IMAGE_PARAMS = {purpose: 'изображение'};
 
 export default Component.extend({
     ajax: service(),
@@ -36,9 +36,9 @@ export default Component.extend({
     accept: '',
     extensions: null,
     uploadUrl: null,
-    paramName: 'file',
+    paramName: 'файл',
     paramsHash: null,
-    resourceName: 'images',
+    resourceName: 'изображения',
     validate: null,
     allowUnsplash: false,
 
@@ -64,7 +64,7 @@ export default Component.extend({
 
     // TODO: this wouldn't be necessary if the server could accept direct
     // file uploads
-    formData: computed('file', function () {
+    formData: computed('файл', function () {
         let file = this.file;
         let formData = new FormData();
 
@@ -77,10 +77,10 @@ export default Component.extend({
         return formData;
     }),
 
-    description: computed('text', 'altText', function () {
+    description: computed('текст', 'altText', function () {
         let altText = this.altText;
 
-        return this.text || (altText ? `Upload image of "${altText}"` : 'Upload an image');
+        return this.text || (altText ? `Upload image of "${altText}"` : 'Загрузить изображение');
     }),
 
     progressStyle: computed('uploadPercentage', function () {
@@ -126,11 +126,11 @@ export default Component.extend({
             let file = fileList[0];
             let validationResult = this._validate(file);
 
-            this.set('file', file);
+            this.set('файл', file);
             this.fileSelected(file);
 
             if (validationResult === true) {
-                run.schedule('actions', this, function () {
+                run.schedule('действия', this, function () {
                     this.generateRequest();
 
                     if (resetInput) {
@@ -152,7 +152,7 @@ export default Component.extend({
         },
 
         reset() {
-            this.set('file', null);
+            this.set('файл', null);
             this.set('uploadPercentage', 0);
         },
 
@@ -240,13 +240,13 @@ export default Component.extend({
             let validExtensions = this.extensions.join(', .').toUpperCase();
             validExtensions = `.${validExtensions}`;
 
-            message = `The image type you uploaded is not supported. Please use ${validExtensions}`;
+            message = `Загруженный вами тип изображения не поддерживается. Пожалуйста, используйте ${validExtensions}`;
         } else if (isRequestEntityTooLargeError(error)) {
-            message = 'The image you uploaded was larger than the maximum file size your server allows.';
+            message = 'Загруженное вами изображение привысило допустимый размер загружаемого файла.';
         } else if (error.payload.errors && !isBlank(error.payload.errors[0].message)) {
             message = error.payload.errors[0].message;
         } else {
-            message = 'Something went wrong :(';
+            message = 'Что-то пошло не так :(';
         }
 
         this.set('failureMessage', message);
