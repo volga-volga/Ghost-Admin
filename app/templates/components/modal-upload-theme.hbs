@@ -3,35 +3,35 @@
         <h1>
             {{#if theme}}
                 {{#if hasWarningsOrErrors}}
-                    Upload successful with {{#if validationErrors}}errors{{else}}warnings{{/if}}
+                    Успешно загружено с {{#if validationErrors}}errors{{else}}warnings{{/if}}
                 {{else}}
-                    Upload successful!
+                    Загрузка успешно завершена!
                 {{/if}}
             {{else if (or validationErrors fatalValidationErrors)}}
-                Invalid theme
+                Недействительная тема
             {{else}}
-                Upload a theme
+                Загрузить тему
             {{/if}}
         </h1>
     </header>
-    <a class="close" href="#" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Close</span></a>
+    <a class="close" href="#" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Закрыть</span></a>
 
     <div class="modal-body">
         {{#if theme}}
             {{#if hasWarningsOrErrors}}
                 <p>
                     {{#if canActivateTheme}}
-                        The theme <strong>"{{themeName}}"</strong> was uploaded successfully but we detected some {{#if validationErrors}}errors{{else}}warnings{{/if}}. You are still able to activate and use the theme but it is recommended to fix these {{#if validationErrors}}errors{{else}}warnings{{/if}} before you do so.
+                        Тема <strong>"{{themeName}}"</strong> была успешно загружена, но мы обнаружили {{#if validationErrors}}errors{{else}}warnings{{/if}}. ВЫ все еще можете активировать и использовать тему, но рекомендуется исправить {{#if validationErrors}}errors{{else}}warnings{{/if}} прежде чем сделать это.
                     {{else}}
-                        The theme <strong>"{{themeName}}"</strong> was uploaded successfully but we detected some
+                        Тема <strong>"{{themeName}}"</strong> была успешно загружена, но мы обнаружили
                         {{#if validationErrors}}errors{{else}}warnings{{/if}}.
                     {{/if}}
                 </p>
 
                 {{#if validationErrors}}
                     <div>
-                        <h2 class="mb0 mt4 f5 fw6">Errors</h2>
-                        <p class="mb2">Highly recommended to fix, functionality <strong>could</strong> be restricted</p>
+                        <h2 class="mb0 mt4 f5 fw6">Ошибки</h2>
+                        <p class="mb2">Настоятельно рекомендуется исправить, функциональность <strong>could</strong> ограничена</p>
                     </div>
                     <ul class="pa0">
                     {{#each validationErrors as |error|}}
@@ -44,7 +44,7 @@
 
                 {{#if validationWarnings}}
                     <div>
-                        <h2 class="mb0 mt4 f5 fw6">Warnings</h2>
+                        <h2 class="mb0 mt4 f5 fw6">Предупреждения</h2>
                     </div>
                     <ul class="pa0">
                     {{#each validationWarnings as |error|}}
@@ -56,24 +56,24 @@
                 {{/if}}
             {{else}}
                 <p>
-                    "{{themeName}}" uploaded successfully.
-                    {{#if canActivateTheme}}Do you want to activate it now?{{/if}}
+                    "{{themeName}}" успешно загружено.
+                    {{#if canActivateTheme}}Вы хотите активировать это?{{/if}}
                 </p>
             {{/if}}
         {{else if displayOverwriteWarning}}
             <p>
-                The theme folder <strong>"{{fileThemeName}}"</strong> already exists. Do you want to overwrite it?
+                Эта тема <strong>"{{fileThemeName}}"</strong> уже существует. Вы хотите перезаписать ее?
             </p>
         {{else if (or validationErrors fatalValidationErrors)}}
 
             <p>
-                This theme is invalid and cannot be activated. Fix the following errors and re-upload the theme.
+                Эта тема недействительна и не может быть активирована. Исправьте следующие ошибки и повторно загрузите тему.
             </p>
 
             {{#if fatalValidationErrors}}
                 <div>
-                    <h2 class="mb0 mt4 f5 fw6">Fatal Errors</h2>
-                    <p class="mb2">Must-fix to activate theme</p>
+                    <h2 class="mb0 mt4 f5 fw6">Фатальные ошибки</h2>
+                    <p class="mb2">Необходимо исправить чтобы актививровать тему</p>
                 </div>
 
                 <ul class="pa0">
@@ -87,8 +87,8 @@
 
             {{#if validationErrors}}
                 <div>
-                    <h2 class="mb0 mt4 f5 fw6">Errors</h2>
-                    <p class="mb2">Highly recommended to fix, functionality <strong>could</strong> be restricted</p>
+                    <h2 class="mb0 mt4 f5 fw6">Ошибки</h2>
+                    <p class="mb2">Настоятельно рекомендуется исправить, функциональность <strong>could</strong> будет приостановлена</p>
                 </div>
                 <ul class="pa0">
                 {{#each validationErrors as |error|}}
@@ -122,17 +122,17 @@
         <div class="flex items-center">
             {{#if displayOverwriteWarning}}
                 <button {{action "confirmOverwrite"}} class="gh-btn gh-btn-red" data-test-overwrite-button>
-                    <span>Overwrite</span>
+                    <span>Перезаписать</span>
                 </button>
             {{/if}}
             {{#if canActivateTheme}}
                 <button {{action "activate"}} class="gh-btn" data-test-activate-now-button>
-                    <span>Activate{{#if validationErrors}} with errors{{/if}}</span>
+                    <span>Активировать {{#if validationErrors}} с ошибками {{/if}}</span>
                 </button>
             {{/if}}
             {{#if (or validationErrors fatalValidationErrors)}}
                 <button {{action "reset"}} class="gh-btn gh-btn-blue ml2" data-test-try-again-button>
-                    <span>Retry</span>
+                    <span>Повторить попытку</span>
                 </button>
             {{/if}}
         </div>
