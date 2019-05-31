@@ -16,7 +16,7 @@ const TrimFocusInputComponent = GhostTextInput.extend({
     },
 
     _trimInput(value, event) {
-        if (value && typeof value.trim === 'function') {
+        if (value && typeof value.trim === 'функция') {
             value = value.trim();
         }
 
