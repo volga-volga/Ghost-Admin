@@ -1,16 +1,16 @@
-<header class="gh-publishmenu-heading">Ready to publish your {{post.displayName}}?</header>
+<header class="gh-publishmenu-heading">Готовы опубликовать {{post.displayName}}?</header>
 <section class="gh-publishmenu-content">
     <div class="gh-publishmenu-radio {{if (eq saveType "publish") "active"}}" {{action "setSaveType" "publish" on="click"}}>
         <div class="gh-publishmenu-radio-button" data-test-publishmenu-published-option></div>
         <div class="gh-publishmenu-radio-content">
-            <div class="gh-publishmenu-radio-label">Set it live now</div>
-            <div class="gh-publishmenu-radio-desc">Publish this {{post.displayName}} immediately</div>
+            <div class="gh-publishmenu-radio-label">Создайте это сейчас</div>
+            <div class="gh-publishmenu-radio-desc">Опубликовать {{post.displayName}} немедленно</div>
         </div>
     </div>
     <div class="gh-publishmenu-radio {{if (eq saveType "schedule") "active"}}" {{action "setSaveType" "schedule" on="click"}}>
         <div class="gh-publishmenu-radio-button" data-test-publishmenu-scheduled-option></div>
         <div class="gh-publishmenu-radio-content">
-            <div class="gh-publishmenu-radio-label">Schedule it for later</div>
+            <div class="gh-publishmenu-radio-label">Запланировать на потом</div>
             {{gh-date-time-picker
                 date=post.publishedAtBlogDate
                 time=post.publishedAtBlogTime
@@ -21,7 +21,7 @@
                 timeErrorProperty="publishedAtBlogTime"
                 minDate=_minDate
             }}
-            <div class="gh-publishmenu-radio-desc">Set automatic future publish date</div>
+            <div class="gh-publishmenu-radio-desc">Установить автоматическую дату публикации</div>
         </div>
     </div>
 </section>
