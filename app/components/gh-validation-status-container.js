@@ -17,7 +17,7 @@ export default Component.extend(ValidationStateMixin, {
         let property = this.property;
 
         if (hasValidated && hasValidated.includes(property)) {
-            return this.hasError ? 'error' : 'success';
+            return this.hasError ? 'ошибка' : 'успешно';
         } else {
             return '';
         }
