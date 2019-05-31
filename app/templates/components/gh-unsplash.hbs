@@ -49,7 +49,7 @@
                         <section class="gh-unsplash-error h-100 flex items-center justify-center pb30">
                             <div>
                                 <img class="gh-unsplash-error-404" src="assets/img/unsplash-404.png" alt="No photos found" />
-                                <h4>No photos found for '{{unsplash.searchTerm}}'</h4>
+                                <h4>Не найдено фото для '{{unsplash.searchTerm}}'</h4>
                             </div>
                         </section>
                     {{/if}}
@@ -59,7 +59,7 @@
                         <section class="gh-unsplash-error h-100 flex items-center justify-center pb30">
                             <div>
                                 <img class="gh-unsplash-error-404" src="assets/img/unsplash-404.png" alt="Network error" />
-                                <h4>{{unsplash.error}} (<a href="#" {{action "retry"}}>retry</a>)</h4>
+                                <h4>{{unsplash.error}} (<a href="#" {{action "retry"}}>повторить попытку</a>)</h4>
                             </div>
                         </section>
                     {{/if}}
