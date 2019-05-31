@@ -2,9 +2,9 @@
     <div id="entry-controls">
         <div class="{{if isViewingSubview 'settings-menu-pane-out-left' 'settings-menu-pane-in'}} settings-menu settings-menu-pane">
             <div class="settings-menu-header">
-                <h4>{{capitalize post.displayName}} Settings</h4>
+                <h4>{{capitalize post.displayName}} Настройки</h4>
                 <button class="close settings-menu-header-action" {{action "closeMenus" target=ui}} data-test-close-settings-menu>
-                    {{svg-jar "close"}}<span class="hidden">Close</span>
+                    {{svg-jar "close"}}<span class="hidden">Закрыть</span>
                 </button>
             </div>
             <div class="settings-menu-content">
@@ -47,9 +47,9 @@
 
                 <div class="form-group">
                     {{#if (or post.isDraft post.isPublished post.pastScheduledTime)}}
-                        <label>Publish Date</label>
+                        <label>Дата публикации</label>
                     {{else}}
-                        <label>Scheduled Date</label>
+                        <label>Запланированная дата</label>
                         <p>Use the publish menu to re-schedule</p>
                     {{/if}}
                     {{gh-date-time-picker
@@ -68,13 +68,13 @@
 
                 {{#unless session.user.isContributor}}
                 <div class="form-group">
-                    <label for="tag-input">Tags</label>
+                    <label for="tag-input">Теги</label>
                     {{gh-psm-tags-input post=post triggerId="tag-input"}}
                 </div>
                 {{/unless}}
 
                 {{#gh-form-group errors=post.errors hasValidated=post.hasValidated property="customExcerpt"}}
-                    <label for="custom-excerpt">Excerpt</label>
+                    <label for="custom-excerpt">Выбор</label>
                     {{gh-textarea
                         class="post-setting-custom-excerpt"
                         id="custom-excerpt"
@@ -89,7 +89,7 @@
 
                 {{#unless session.user.isAuthorOrContributor}}
                     {{#gh-form-group class="for-select" errors=post.errors hasValidated=post.hasValidated property="authors" data-test-input="authors"}}
-                        <label for="author-list">Authors</label>
+                        <label for="author-list">Авторы</label>
                         {{gh-psm-authors-input selectedAuthors=post.authors updateAuthors=(action "changeAuthors") triggerId="author-list"}}
                         {{gh-error-message errors=post.errors property="authors" data-test-error="authors"}}
                     {{/gh-form-group}}
@@ -99,28 +99,28 @@
                     <li class="nav-list-item" {{action "showSubview" "meta-data"}} data-test-button="meta-data">
                         <button type="button">
                             <b>Meta Data</b>
-                            <span>Extra content for search engines</span>
+                            <span>Дополнительный контент для поисковой системы</span>
                         </button>
                         {{svg-jar "arrow-right"}}
                     </li>
                     <li class="nav-list-item" {{action "showSubview" "twitter-data"}} data-test-button="twitter-data">
                         <button type="button">
                             <b>Twitter Card</b>
-                            <span>Customise structured data for Twitter</span>
+                            <span>Настройте данные для Twitter</span>
                         </button>
                         {{svg-jar "arrow-right"}}
                     </li>
                     <li class="nav-list-item" {{action "showSubview" "facebook-data"}} data-test-button="facebook-data">
                         <button type="button">
                             <b>Facebook Card</b>
-                            <span>Customise Open Graph data</span>
+                            <span>Пользовательские данные Open Graph</span>
                         </button>
                         {{svg-jar "arrow-right"}}
                     </li>
                     <li class="nav-list-item" {{action "showSubview" "codeinjection"}} data-test-button="codeinjection">
                         <button type="button">
                             <b>Code Injection</b>
-                            <span>Add styles/scripts to the header &amp; footer</span>
+                            <span>Добавить стили/скрипты в шапку &amp; нижнего колонтитула</span>
                         </button>
                         {{svg-jar "arrow-right"}}
                     </li>
@@ -137,7 +137,7 @@
                             data-test-checkbox="featured"
                         >
                         <span class="input-toggle-component"></span>
-                        <p>Feature this {{post.displayName}}</p>
+                        <p>Характеристика {{post.displayName}}</p>
                     </label>
                 </div>
                 {{/unless}}
@@ -177,7 +177,7 @@
                                         focus-out=(action "setMetaTitle" metaTitleScratch)
                                         stopEnterKeyDownPropagation=true
                                         data-test-field="meta-title"}}
-                                    <p>Recommended: <b>70</b> characters. You’ve used {{gh-count-down-characters metaTitleScratch 70}}</p>
+                                    <p>Рекомендовано: <b>70</b> символов. Вы использовали {{gh-count-down-characters metaTitleScratch 70}}</p>
                                     {{gh-error-message errors=post.errors property="meta-title"}}
                                 {{/gh-form-group}}
 
@@ -192,7 +192,7 @@
                                         focus-out=(action "setMetaDescription" metaDescriptionScratch)
                                         stopEnterKeyDownPropagation="true"
                                         data-test-field="meta-description"}}
-                                    <p>Recommended: <b>156</b> characters. You’ve used {{gh-count-down-characters metaDescriptionScratch 156}}</p>
+                                    <p>Рекомендовано: <b>156</b> символов. Вы использовали {{gh-count-down-characters metaDescriptionScratch 156}}</p>
                                     {{gh-error-message errors=post.errors property="meta-description"}}
                                 {{/gh-form-group}}
 
@@ -339,7 +339,7 @@
                                 {{/gh-form-group}}
 
                                 <div class="form-group">
-                                    <label>Preview</label>
+                                    <label>Предосмотр</label>
                                     <div class="gh-og-preview">
                                         {{#if facebookImage}}
                                         <div class="gh-og-preview-image" style={{background-image-style facebookImage}}></div>
