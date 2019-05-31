@@ -5,42 +5,42 @@
     <section class="view-container">
         <section class="gh-env-details">
             <ul class="gh-env-list">
-                <li class="gh-env-list-version"><strong>Version</strong> {{config.version}}</li>
-                <li><strong>Environment</strong> {{config.environment}}</li>
-                <li class="gh-env-list-database-type"><strong>Database</strong> {{config.database}}</li>
-                <li><strong>Mail</strong> {{#if config.mail}}{{config.mail}}{{else}}Native{{/if}}</li>
+                <li class="gh-env-list-version"><strong>Версия</strong> {{config.version}}</li>
+                <li><strong>Состояние</strong> {{config.environment}}</li>
+                <li class="gh-env-list-database-type"><strong>База данных</strong> {{config.database}}</li>
+                <li><strong>Почта</strong> {{#if config.mail}}{{config.mail}}{{else}}Native{{/if}}</li>
             </ul>
             <div class="gh-env-help">
-                <a class="gh-btn" href="https://docs.ghost.org" target="_blank"><span>User Documentation</span></a>
-                <a class="gh-btn" href="https://forum.ghost.org/" target="_blank"><span>Get Help With Ghost</span></a>
+                <a class="gh-btn" href="https://docs.ghost.org" target="_blank"><span>Пользовательсккая документация</span></a>
+                <a class="gh-btn" href="https://forum.ghost.org/" target="_blank"><span>Получить помощь Ghost</span></a>
             </div>
         </section>
 
         {{#if upgradeStatus.message}}
             <section class="gh-upgrade-notification">
                 <p>
-                    <strong>Update available!</strong> {{upgradeStatus.message}}
+                    <strong>Доступно обновление!</strong> {{upgradeStatus.message}}
                 </p>
             </section>
         {{/if}}
 
         <section class="gh-credits">
-            <h2>The People Who Made it Possible</h2>
+            <h2>Люди, которые воплотили это в реальность</h2>
 
             <section class="gh-contributors">
                 {{partial "contributors"}}
             </section>
 
-            <p>Ghost is built by an incredible group of contributors from all over the world. Here are just a few of the people who helped create the version you’re using right now.</p>
+            <p>Ghost создан невероятной группой участников со всего мира. Вот лишь несколько человек, которые помогли создать версию, которую вы используете прямо сейчас.</p>
 
-            <a class="gh-btn gh-btn-blue" href="https://docs.ghost.org/concepts/contributing/" target="_blank"><span>Find out how you can get involved</span></a>
+            <a class="gh-btn gh-btn-blue" href="https://docs.ghost.org/concepts/contributing/" target="_blank"><span>Узнайте о том, как вы можете принять участие в этом проекте</span></a>
 
         </section>
 
         <footer class="gh-copyright-info">
             Copyright &copy; 2013 &ndash; {{copyrightYear}} Ghost Foundation, released under the <a href="https://github.com/TryGhost/Ghost/blob/master/LICENSE" target="_blank">MIT license</a>.
             <br>
-            <a href="https://ghost.org/" target="_blank">Ghost</a> is a registered trademark of <a href="https://ghost.org/trademark/" target="_blank">Ghost Foundation Ltd</a>.
+            <a href="https://ghost.org/" target="_blank">Ghost</a> является зарегистрированным товарным знаком <a href="https://ghost.org/trademark/" target="_blank">Ghost Foundation Ltd</a>.
         </footer>
     </section>
 </section>
