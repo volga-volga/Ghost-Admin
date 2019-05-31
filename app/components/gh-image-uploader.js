@@ -242,7 +242,7 @@ export default Component.extend({
 
             message = `Загруженный вами тип изображения не поддерживается. Пожалуйста, используйте ${validExtensions}`;
         } else if (isRequestEntityTooLargeError(error)) {
-            message = 'Загруженное вами изображение привысило допустимый размер загружаемого файла.';
+            message = 'Загруженное вами изображение превысило допустимый размер загружаемого файла.';
         } else if (error.payload.errors && !isBlank(error.payload.errors[0].message)) {
             message = error.payload.errors[0].message;
         } else {
