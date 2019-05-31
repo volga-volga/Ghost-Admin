@@ -51,9 +51,9 @@ export default Component.extend({
     accept: '',
     extensions: '',
     files: null,
-    paramName: 'file',
+    paramName: 'файл',
     paramsHash: null,
-    resourceName: 'images',
+    resourceName: 'изображения',
     uploadUrl: null,
 
     // Interal attributes
@@ -87,7 +87,7 @@ export default Component.extend({
         this._uploadTrackers = [];
 
         if (!this.paramsHash) {
-            this.set('paramsHash', {purpose: 'image'});
+            this.set('paramsHash', {purpose: 'изображение'});
         }
     },
 
@@ -120,12 +120,12 @@ export default Component.extend({
     },
 
     _setFiles(files) {
-        this.set('files', files);
+        this.set('файлы', files);
 
         if (files && files !== this._files) {
             if (this.get('_uploadFiles.isRunning')) {
                 // eslint-disable-next-line
-                console.error('Adding new files whilst an upload is in progress is not supported.');
+                console.error('Добавление новых файлов во время загрузки не поддерживается.');
             }
 
             this._files = files;
@@ -159,7 +159,7 @@ export default Component.extend({
             return true;
         }
 
-        this.set('errors', errors);
+        this.set('ошибки', errors);
         this.onFailed(errors);
         return false;
     },
@@ -230,7 +230,7 @@ export default Component.extend({
                 xhr: () => {
                     let xhr = new window.XMLHttpRequest();
 
-                    xhr.upload.addEventListener('progress', (event) => {
+                    xhr.upload.addEventListener('прогресс', (event) => {
                         run(() => {
                             tracker.update(event);
                             this._updateProgress();
@@ -312,8 +312,8 @@ export default Component.extend({
     // computation but that hypothesis needs testing
     _updateProgress() {
         let trackers = this._uploadTrackers;
-        let totalSize = trackers.reduce((total, tracker) => total + tracker.get('total'), 0);
-        let uploadedSize = trackers.reduce((total, tracker) => total + tracker.get('loaded'), 0);
+        let totalSize = trackers.reduce((total, tracker) => total + tracker.get('всего'), 0);
+        let uploadedSize = trackers.reduce((total, tracker) => total + tracker.get('загружено'), 0);
 
         this.set('totalSize', totalSize);
         this.set('uploadedSize', uploadedSize);
@@ -327,7 +327,7 @@ export default Component.extend({
     },
 
     _reset() {
-        this.set('errors', []);
+        this.set('ошибки', []);
         this.set('totalSize', 0);
         this.set('uploadedSize', 0);
         this.set('uploadPercentage', 0);
