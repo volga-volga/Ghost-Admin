@@ -15,7 +15,7 @@ export default Component.extend({
     // Allowed actions
     update: () => {},
 
-    availableTimezoneNames: mapBy('availableTimezones', 'name'),
+    availableTimezoneNames: mapBy('availableTimezones', 'имя'),
 
     hasTimezoneOverride: computed('activeTimezone', 'availableTimezoneNames', function () {
         let activeTimezone = this.activeTimezone;
@@ -34,7 +34,7 @@ export default Component.extend({
         }
 
         return availableTimezones
-            .filterBy('name', activeTimezone)
+            .filterBy('имя', activeTimezone)
             .get('firstObject');
     }),
 
