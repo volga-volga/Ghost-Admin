@@ -23,9 +23,9 @@ export default Component.extend({
     // public attrs
     allowCreation: true,
     closeOnSelect: false,
-    labelField: 'name',
+    labelField: 'имя',
     matcher: defaultMatcher,
-    searchField: 'name',
+    searchField: 'имя',
     tagName: '',
     triggerComponent: 'gh-token-input/trigger',
 
