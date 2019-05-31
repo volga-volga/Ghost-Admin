@@ -70,16 +70,16 @@ export default ModalComponent.extend({
 
     _setErrorState(state) {
         if (state) {
-            this.$('.url').addClass('error');
+            this.$('.url').addClass('ошибка');
         } else {
-            this.$('.url').removeClass('error');
+            this.$('.url').removeClass('ошибка');
         }
     },
 
     _validateUrl(url) {
         if (!isEmpty(url) && !cajaSanitizers.url(url)) {
             this._setErrorState(true);
-            return {message: 'Image URI is not valid'};
+            return {message: 'URI изображение не валидно'};
         }
 
         return true;
@@ -93,7 +93,7 @@ export default ModalComponent.extend({
         let notifications = this.notifications;
 
         if (result === true) {
-            this.set('image', newUrl);
+            this.set('изображение', newUrl);
 
             try {
                 yield model.save();
