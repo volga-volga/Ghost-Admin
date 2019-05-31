@@ -3,14 +3,14 @@
     <div class="gh-flow-content-wrap">
         <section class="gh-flow-content">
             <header>
-                <h1>Create your account</h1>
+                <h1>Создать аккаунт</h1>
             </header>
 
             <form id="signup" class="gh-flow-create" method="post" novalidate="novalidate" onsubmit={{action "submit"}}>
                 {{gh-profile-image email=signupDetails.email setImage=(action "setImage")}}
 
                 {{#gh-form-group errors=signupDetails.errors hasValidated=signupDetails.hasValidated property="name"}}
-                    <label for="name">Full name</label>
+                    <label for="name">Полное имя</label>
                     <span class="gh-input-icon gh-icon-user">
                         {{svg-jar "user-circle"}}
                         {{gh-trim-focus-input
@@ -31,7 +31,7 @@
                 {{/gh-form-group}}
 
                 {{#gh-form-group errors=signupDetails.errors hasValidated=signupDetails.hasValidated property="email"}}
-                    <label for="email">Email address</label>
+                    <label for="email">Email адрес</label>
                     <span class="gh-input-icon gh-icon-mail">
                         {{svg-jar "email"}}
                         {{gh-text-input
@@ -52,7 +52,7 @@
                 {{/gh-form-group}}
 
                 {{#gh-form-group errors=signupDetails.errors hasValidated=signupDetails.hasValidated property="password"}}
-                    <label for="password">Password</label>
+                    <label for="password">Пароль</label>
                     <span class="gh-input-icon gh-icon-lock">
                         {{svg-jar "lock"}}
                         {{gh-text-input
