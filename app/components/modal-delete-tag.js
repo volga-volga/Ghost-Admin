@@ -10,7 +10,7 @@ export default ModalComponent.extend({
     tag: alias('model'),
 
     postInflection: computed('tag.count.posts', function () {
-        return this.get('tag.count.posts') > 1 ? 'posts' : 'post';
+        return this.get('tag.count.posts') > 1 ? 'посты' : 'пост';
     }),
 
     actions: {
