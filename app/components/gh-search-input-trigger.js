@@ -27,7 +27,7 @@ export default Component.extend({
         },
 
         resetInput() {
-            let input = this.element && this.element.querySelector('input');
+            let input = this.element && this.element.querySelector('ввод');
             if (input) {
                 input.value = '';
             }
@@ -52,7 +52,7 @@ export default Component.extend({
     },
 
     _focusInput() {
-        let input = this.element && this.element.querySelector('input');
+        let input = this.element && this.element.querySelector('ввод');
         if (input) {
             input.focus();
         }
