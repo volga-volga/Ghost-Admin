@@ -101,7 +101,7 @@
                             <h3>Вы еще не написали ни одного поста!</h3>
                             {{#link-to "editor.new" "post"}}<button type="button" class="gh-btn gh-btn-green gh-btn-lg"><span>Создать новый пост</span></button>{{/link-to}}
                         {{else}}
-                            <h3>No posts match the current filter</h3>
+                            <h3>Нет записей, соотвествующих выбранному фильтру</h3>
                             {{#link-to "posts.index" (query-params type=null author=null tag=null)}}<button type="button" class="gh-btn gh-btn-lg"><span>Показать все посты</span></button>{{/link-to}}
                         {{/if}}
                     </div>
