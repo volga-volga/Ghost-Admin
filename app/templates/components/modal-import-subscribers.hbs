@@ -1,30 +1,30 @@
 <header class="modal-header" data-test-modal="import-subscribers">
     <h1>
         {{#if response}}
-            Import Successful
+            Успешно импортировано
         {{else}}
-            Import Subscribers
+            Импорт подписчиков
         {{/if}}
     </h1>
 </header>
-<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Close</span></a>
+<a class="close" href="" title="Close" {{action "closeModal"}}>{{svg-jar "close"}}<span class="hidden">Закрыть</span></a>
 
 <div class="modal-body">
     {{#if response}}
         <table class="subscribers-import-results">
             <tr>
-                <td>Imported:</td>
+                <td>Импортировано:</td>
                 <td align="left" data-test-text="import-subscribers-imported">{{response.imported}}</td>
             </tr>
             {{#if response.duplicates}}
                 <tr>
-                    <td>Duplicates:</td>
+                    <td>Дубликаты:</td>
                     <td align="left" data-test-text="import-subscribers-duplicates">{{response.duplicates}}</td>
                 </tr>
             {{/if}}
             {{#if response.invalid}}
                 <tr>
-                    <td>Invalid:</td>
+                    <td>Недействительно:</td>
                     <td align="left" data-test-text="import-subscribers-invalid">{{response.invalid}}</td>
                 </tr>
             {{/if}}
