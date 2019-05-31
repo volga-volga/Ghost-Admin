@@ -1,5 +1,5 @@
 <header class="modal-header" data-test-modal="new-integration">
-    <h1>New custom integration</h1>
+    <h1>Новая пользовательская интеграция</h1>
 </header>
 {{!-- disable mouseDown so it doesn't trigger focus-out validations --}}
 <button class="close" href="" title="Close" {{action "closeModal"}} {{action (optional noop) on="mouseDown"}}>
@@ -9,7 +9,7 @@
 <div class="modal-body">
     <fieldset>
         {{#gh-form-group errors=integration.errors hasValidated=integration.hasValidated property="name"}}
-            <label for="new-integration-name" class="fw6">Name</label>
+            <label for="new-integration-name" class="fw6">Имя</label>
             <input type="text"
                 value={{integration.name}}
                 oninput={{action "updateName" value="target.value"}}
@@ -34,7 +34,7 @@
         {{action (optional noop) on="mouseDown"}}
         data-test-button="cancel-new-integration"
     >
-        <span>Cancel</span>
+        <span>Отмена</span>
     </button>
     {{gh-task-button "Create"
         successText="Created"
