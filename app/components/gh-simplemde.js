@@ -39,7 +39,7 @@ export default TextArea.extend({
         this._super(...arguments);
 
         if (isEmpty(this.options)) {
-            this.set('options', {});
+            this.set('опции', {});
         }
     },
 
@@ -83,14 +83,14 @@ export default TextArea.extend({
 
         // disable spellchecker when testing so that the exterally loaded plugin
         // doesn't fail
-        if (config.environment === 'test') {
+        if (config.environment === 'тест') {
             editorOptions.spellChecker = false;
         }
 
         this._editor = new SimpleMDE(editorOptions);
         this._editor.value(this.value || '');
 
-        this._editor.codemirror.on('change', (instance, changeObj) => {
+        this._editor.codemirror.on('изменить', (instance, changeObj) => {
             // avoid a "modified x twice in a single render" error that occurs
             // when the underlying value is completely swapped out
             if (changeObj.origin !== 'setValue') {
@@ -98,11 +98,11 @@ export default TextArea.extend({
             }
         });
 
-        this._editor.codemirror.on('focus', () => {
+        this._editor.codemirror.on('фокус', () => {
             this.onFocus();
         });
 
-        this._editor.codemirror.on('blur', () => {
+        this._editor.codemirror.on('размытие', () => {
             this.onBlur();
         });
 
