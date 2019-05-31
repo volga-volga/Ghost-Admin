@@ -8,7 +8,7 @@ import {inject as service} from '@ember/service';
 import {task, timeout, waitForProperty} from 'ember-concurrency';
 
 export function computedGroup(category) {
-    return computed('content', 'currentSearch', function () {
+    return computed('контент', 'currentSearch', function () {
         if (!this.currentSearch || !this.content) {
             return [];
         }
@@ -22,8 +22,8 @@ export function computedGroup(category) {
 }
 
 export default Component.extend({
-    store: service('store'),
-    router: service('router'),
+    store: service('магазин'),
+    router: service('маршрутизатор'),
     ajax: service(),
     notifications: service(),
 
@@ -33,28 +33,28 @@ export default Component.extend({
     currentSearch: '',
     selection: null,
 
-    posts: computedGroup('Posts'),
-    pages: computedGroup('Pages'),
-    users: computedGroup('Users'),
-    tags: computedGroup('Tags'),
+    posts: computedGroup('Посты'),
+    pages: computedGroup('Страницы'),
+    users: computedGroup('Пользователи'),
+    tags: computedGroup('Теги'),
 
-    groupedContent: computed('posts', 'pages', 'users', 'tags', function () {
+    groupedContent: computed('посты', 'страницы', 'пользователи', 'теги', function () {
         let groups = [];
 
         if (!isEmpty(this.posts)) {
-            groups.pushObject({groupName: 'Posts', options: this.posts});
+            groups.pushObject({groupName: 'Посты', options: this.posts});
         }
 
         if (!isEmpty(this.pages)) {
-            groups.pushObject({groupName: 'Pages', options: this.pages});
+            groups.pushObject({groupName: 'Страницы', options: this.pages});
         }
 
         if (!isEmpty(this.users)) {
-            groups.pushObject({groupName: 'Users', options: this.users});
+            groups.pushObject({groupName: 'Пользователи', options: this.users});
         }
 
         if (!isEmpty(this.tags)) {
-            groups.pushObject({groupName: 'Tags', options: this.tags});
+            groups.pushObject({groupName: 'Теги', options: this.tags});
         }
 
         return groups;
@@ -71,22 +71,22 @@ export default Component.extend({
                 return;
             }
 
-            if (selected.category === 'Posts') {
+            if (selected.category === 'Посты') {
                 let id = selected.id.replace('post.', '');
                 this.router.transitionTo('editor.edit', 'post', id);
             }
 
-            if (selected.category === 'Pages') {
+            if (selected.category === 'Страницы') {
                 let id = selected.id.replace('page.', '');
-                this.router.transitionTo('editor.edit', 'page', id);
+                this.router.transitionTo('editor.edit', 'страницы', id);
             }
 
-            if (selected.category === 'Users') {
+            if (selected.category === 'Пользователи') {
                 let id = selected.id.replace('user.', '');
                 this.router.transitionTo('staff.user', id);
             }
 
-            if (selected.category === 'Tags') {
+            if (selected.category === 'Теги') {
                 let id = selected.id.replace('tag.', '');
                 this.router.transitionTo('settings.tags.tag', id);
             }
@@ -154,15 +154,15 @@ export default Component.extend({
 
     _loadPosts() {
         let store = this.store;
-        let postsUrl = `${store.adapterFor('post').urlForQuery({}, 'post')}/`;
-        let postsQuery = {fields: 'id,title,page', limit: 'all', status: 'all'};
+        let postsUrl = `${store.adapterFor('пост').urlForQuery({}, 'пост')}/`;
+        let postsQuery = {fields: 'id,title,page', limit: 'все', status: 'все'};
         let content = this.content;
 
         return this.ajax.request(postsUrl, {data: postsQuery}).then((posts) => {
             content.pushObjects(posts.posts.map(post => ({
                 id: `post.${post.id}`,
                 title: post.title,
-                category: 'Posts'
+                category: 'Посты'
             })));
         }).catch((error) => {
             this.notifications.showAPIError(error, {key: 'search.loadPosts.error'});
@@ -171,15 +171,15 @@ export default Component.extend({
 
     _loadPages() {
         let store = this.store;
-        let pagesUrl = `${store.adapterFor('page').urlForQuery({}, 'page')}/`;
-        let pagesQuery = {fields: 'id,title,page', limit: 'all', status: 'all'};
+        let pagesUrl = `${store.adapterFor('страница').urlForQuery({}, 'страница')}/`;
+        let pagesQuery = {fields: 'id,title,page', limit: 'все', status: 'все'};
         let content = this.content;
 
         return this.ajax.request(pagesUrl, {data: pagesQuery}).then((pages) => {
             content.pushObjects(pages.pages.map(page => ({
                 id: `page.${page.id}`,
                 title: page.title,
-                category: 'Pages'
+                category: 'Страницы'
             })));
         }).catch((error) => {
             this.notifications.showAPIError(error, {key: 'search.loadPosts.error'});
@@ -188,7 +188,7 @@ export default Component.extend({
 
     _loadUsers() {
         let store = this.store;
-        let usersUrl = `${store.adapterFor('user').urlForQuery({}, 'user')}/`;
+        let usersUrl = `${store.adapterFor('user').urlForQuery({}, 'пользователь')}/`;
         let usersQuery = {fields: 'name,slug', limit: 'all'};
         let content = this.content;
 
@@ -196,7 +196,7 @@ export default Component.extend({
             content.pushObjects(users.users.map(user => ({
                 id: `user.${user.slug}`,
                 title: user.name,
-                category: 'Users'
+                category: 'Пользователи'
             })));
         }).catch((error) => {
             this.notifications.showAPIError(error, {key: 'search.loadUsers.error'});
@@ -205,7 +205,7 @@ export default Component.extend({
 
     _loadTags() {
         let store = this.store;
-        let tagsUrl = `${store.adapterFor('tag').urlForQuery({}, 'tag')}/`;
+        let tagsUrl = `${store.adapterFor('tag').urlForQuery({}, 'тег')}/`;
         let tagsQuery = {fields: 'name,slug', limit: 'all'};
         let content = this.content;
 
@@ -213,7 +213,7 @@ export default Component.extend({
             content.pushObjects(tags.tags.map(tag => ({
                 id: `tag.${tag.slug}`,
                 title: tag.name,
-                category: 'Tags'
+                category: 'Теги'
             })));
         }).catch((error) => {
             this.notifications.showAPIError(error, {key: 'search.loadTags.error'});
@@ -225,7 +225,7 @@ export default Component.extend({
     },
 
     _resetKeymasterScope() {
-        key.setScope('default');
+        key.setScope('по умолчанию');
     },
 
     willDestroy() {
