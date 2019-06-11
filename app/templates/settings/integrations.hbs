@@ -8,13 +8,13 @@
             <div class="id-item-logo id-disqus">
                 <img class="w-100 h-100" style="object-fit:contain;" src="assets/img/disqus.svg" alt="Disqus Icon" />
             </div>
-            <div class="f8 mt1">Disqus</div>
+            <div class="f8 mt1">Обсуждение</div>
         </a>
         <a class="id-item" href="https://docs.ghost.org/integrations/google/" target="_blank" rel="noopener noreferrer">
             <div class="id-item-logo id-analytics">
                 <img class="w-100 h-100" style="object-fit:contain;padding:1px 0;" src="assets/img/google-analytics.png" alt="Google Analytics Icon" />
             </div>
-            <div class="f8 mt1">Analytics</div>
+            <div class="f8 mt1">Аналитика</div>
         </a>
         <a class="id-item" href="https://docs.ghost.org/integrations/mailchimp/" target="_blank" rel="noopener noreferrer">
             <div class="id-item-logo id-mailchimp">
@@ -38,19 +38,19 @@
             <div class="id-item-logo id-buffer">
                 <img class="w-100 h-100" style="object-fit:contain;padding:1px 0;" src="assets/img/buffer.png" alt="Buffer Icon" />
             </div>
-            <div class="f8 mt1">Buffer</div>
+            <div class="f8 mt1">Буфер</div>
         </a>
         <a class="id-item" href="https://docs.ghost.org/integrations/revue/" target="_blank" rel="noopener noreferrer">
             <div class="id-item-logo id-revue">
                 <img class="w-100 h-100" style="object-fit:contain;padding:1px 0;" src="assets/img/revue.svg" alt="Revue Icon" />
             </div>
-            <div class="f8 mt1">Revue</div>
+            <div class="f8 mt1">Ревью</div>
         </a>
         <a class="id-item" href="https://docs.ghost.org/integrations/" target="_blank" rel="noopener noreferrer">
             <div class="id-item-logo id-more">
                 <img class="w-100 h-100" style="object-fit:contain;padding:0 8px;" src="assets/img/more.png" alt="Three dots" />
             </div>
-            <div class="f8 mt1">More</div>
+            <div class="f8 mt1">Больше</div>
         </a>
     </div>
 
@@ -66,12 +66,12 @@
                         <figure class="apps-card-app-icon" style="background-image:url(assets/img/zapiericon.png);background-size:45px;"></figure>
                         <div class="apps-card-meta">
                             <h3 class="apps-card-app-title">Zapier</h3>
-                            <p class="apps-card-app-desc">Automation for your favourite apps</p>
+                            <p class="apps-card-app-desc">Автоматизация для ваших любимых приложений</p>
                         </div>
                     </div>
                     <div class="gh-card-right">
                         <div class="apps-configured">
-                            <span data-test-app-status>Configure</span>
+                            <span data-test-app-status>Конфигурация</span>
                             {{svg-jar "arrow-right"}}
                         </div>
                     </div>
@@ -86,15 +86,15 @@
                         <figure class="apps-card-app-icon" style="background-image:url(assets/img/slackicon.png)"></figure>
                         <div class="apps-card-meta">
                             <h3 class="apps-card-app-title">Slack</h3>
-                            <p class="apps-card-app-desc">A messaging app for teams</p>
+                            <p class="apps-card-app-desc">Приложение обмена сообщениями для команд</p>
                         </div>
                     </div>
                     <div class="gh-card-right">
                         <div class="apps-configured">
                             {{#if settings.slack.isActive}}
-                                <span class="green" data-test-app-status>Active</span>
+                                <span class="green" data-test-app-status>Активно</span>
                             {{else}}
-                                <span data-test-app-status>Configure</span>
+                                <span data-test-app-status>Конфигурация</span>
                             {{/if}}
                             {{svg-jar "arrow-right"}}
                         </div>
@@ -116,9 +116,9 @@
                     <div class="gh-card-right">
                         <div class="apps-configured">
                             {{#if settings.amp}}
-                                <span class="green" data-test-app-status>Active</span>
+                                <span class="green" data-test-app-status>Активно</span>
                             {{else}}
-                                <span data-test-app-status>Configure</span>
+                                <span data-test-app-status>Конфигурация</span>
                             {{/if}}
                             {{svg-jar "arrow-right"}}
                         </div>
@@ -134,15 +134,15 @@
                         <figure class="apps-card-app-icon" style="background-image:url(assets/icons/unsplash.svg);background-size:38px;"></figure>
                         <div class="apps-card-meta">
                             <h3 class="apps-card-app-title">Unsplash</h3>
-                            <p class="apps-card-app-desc">Beautiful, free photos</p>
+                            <p class="apps-card-app-desc">Прекрасные, бесплатные фотографии</p>
                         </div>
                     </div>
                     <div class="gh-card-right">
                         <div class="apps-configured">
                             {{#if settings.unsplash.isActive}}
-                                <span class="green" data-test-app-status>Active</span>
+                                <span class="green" data-test-app-status>Активно</span>
                             {{else}}
-                                <span data-test-app-status>Configure</span>
+                                <span data-test-app-status>Конфигурация</span>
                             {{/if}}
                             {{svg-jar "arrow-right"}}
                         </div>
@@ -157,7 +157,7 @@
 
     <section class="apps-grid-container pt6">
 
-        <span class="apps-grid-title pb2">Custom integrations</span>
+        <span class="apps-grid-title pb2">Пользовательские интеграции</span>
         <div class="apps-grid">
             {{#each integrations as |integration|}}
                 <div class="apps-grid-cell" data-test-custom-integration>
@@ -194,12 +194,12 @@
                     {{else}}
                         <div class="flex flex-column items-center pa5 pt15 pb15">
                             <p class="ma0 pa0 tc midgrey lh-title mt2">
-                                Create your own custom Ghost integrations with dedicated API keys & webhooks
+                               Создайте свои собственные Ghost интеграции с выделенным API keys & webhooks
                             </p>
                             {{#link-to "settings.integrations.new" class="" data-test-button="new-integration"}}
                                 <div class="flex items-center pa2 pt1">
                                     {{svg-jar "add" class="w3 h3 fill-blue-d1"}}
-                                    <span class="db ml1 blue nudge-bottom--1">Add custom integration</span>
+                                    <span class="db ml1 blue nudge-bottom--1">Добавить пользовательскую интеграцию</span>
                                 </div>
                             {{/link-to}}
                         </div>
@@ -213,7 +213,7 @@
                 <article class="apps-card-app">
                     <div class="flex items-center">
                         {{svg-jar "add" class="w3 h3 fill-blue-d1"}}
-                        <span class="db ml1 blue nudge-bottom--1 fw4">Add custom integration</span>
+                        <span class="db ml1 blue nudge-bottom--1 fw4">Добавить пользовательскую интеграцию</span>
                     </div>
                 </article>
                 {{/link-to}}
