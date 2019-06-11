@@ -1,6 +1,6 @@
 <section class="gh-canvas">
     <header class="gh-canvas-header">
-        <h2 class="gh-canvas-title" data-test-screen-title>General</h2>
+        <h2 class="gh-canvas-title" data-test-screen-title>Главная</h2>
         <section class="view-actions">
             {{gh-task-button "Save settings" task=save class="gh-btn gh-btn-blue gh-btn-icon" data-test-save-button=true}}
         </section>
@@ -15,11 +15,11 @@
 
     <section class="view-container">
 
-        <div class="gh-setting-header">Publication info</div>
+        <div class="gh-setting-header">Опубликовать информацию</div>
         <div class="gh-setting">
             <div class="gh-setting-content">
-                <div class="gh-setting-title">Title &amp; description</div>
-                <div class="gh-setting-desc">The details used to identify your publication around the web</div>
+                <div class="gh-setting-title">Название &amp; описания</div>
+                <div class="gh-setting-desc">Детали, используемые для идентификации вашей публикации в Интернете</div>
                 {{#liquid-if pubInfoOpen}}
                 <div class="gh-setting-content-extended">
                     {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="title"}}
@@ -41,7 +41,7 @@
                             data-test-description-input=true
                         }}
                         {{gh-error-message errors=settings.errors property="description"}}
-                        <p>Used in your theme, meta data and search results</p>
+                        <p>Используется в вашей теме, метаданных и результатах поиска</p>
                     {{/gh-form-group}}
                 </div>
                 {{/liquid-if}}
@@ -52,8 +52,8 @@
         </div>
         <div class="gh-setting">
             <div class="gh-setting-content">
-                <div class="gh-setting-title">Site timezone</div>
-                <div class="gh-setting-desc">Set the time and date of your publication, used for all published posts</div>
+                <div class="gh-setting-title">Часовой пояс сайта</div>
+                <div class="gh-setting-desc">Установите время и дату вашей публикации, используемую для всех опубликованных постов.</div>
                 {{#liquid-if timezoneOpen}}
                 <div class="gh-setting-content-extended">
                     {{gh-timezone-select
@@ -69,8 +69,8 @@
         </div>
         <div class="gh-setting">
             <div class="gh-setting-content">
-                <div class="gh-setting-title">Publication Language</div>
-                <div class="gh-setting-desc">Set the language/locale which is used on your site</div>
+                <div class="gh-setting-title">Язык публикации</div>
+                <div class="gh-setting-desc">Установите язык, который будет использоваться на вашем сайте</div>
                 {{#liquid-if defaultLocaleOpen}}
                 <div class="gh-setting-content-extended">
                     {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="defaultLocale"}}
@@ -81,7 +81,7 @@
                             data-test-default-locale-input=true
                         }}
                         {{gh-error-message errors=settings.errors property="defaultLocale"}}
-                        <p>Default: English (<strong>en</strong>); you can add translation files to your theme for <a href="https://docs.ghost.org/api/handlebars-themes/helpers/translate/" target="_blank" rel="noopener">any language</a></p>
+                        <p>По умолчанию: English (<strong>en</strong>); Вы можете добавить файлы перевода в свою тему для <a href="https://docs.ghost.org/api/handlebars-themes/helpers/translate/" target="_blank" rel="noopener">любого языка</a></p>
                     {{/gh-form-group}}
                 </div>
                 {{/liquid-if}}
@@ -100,8 +100,8 @@
                 as |uploader|
             }}
             <div class="gh-setting-content">
-                <div class="gh-setting-title">Publication icon</div>
-                <div class="gh-setting-desc">A square, social icon used in the UI of your publication, at least 60x60px</div>
+                <div class="gh-setting-title">Иконка публикации</div>
+                <div class="gh-setting-desc">Квадратная  иконка, используемая в пользовательском интерфейсе вашей публикации, размером не менее 60x60px</div>
                 {{#each uploader.errors as |error|}}
                     <div class="gh-setting-error" data-test-error="icon">{{or error.context error.message}}</div>
                 {{/each}}
@@ -116,7 +116,7 @@
                     </button>
                 {{else}}
                     <button type="button" class="gh-btn gh-btn-hover-blue" onclick={{action "triggerFileDialog"}} data-test-image-upload-btn="icon">
-                        <span>Upload Image</span>
+                        <span>Загрузить изображение</span>
                     </button>
                 {{/if}}
                 <div style="display:none">
@@ -132,8 +132,8 @@
                 as |uploader|
             }}
             <div class="gh-setting-content">
-                <div class="gh-setting-title">Publication logo</div>
-                <div class="gh-setting-desc">The primary logo for your brand displayed across your theme, should be transparent and at least 600px x 72px</div>
+                <div class="gh-setting-title">Логотип публикации</div>
+                <div class="gh-setting-desc">Основной логотип вашего бренда, отображаемый в вашей теме, должен быть прозрачным и не менее 600px x 72px</div>
                 {{#each uploader.errors as |error|}}
                     <div class="gh-setting-error" data-test-error="logo">{{or error.context error.message}}</div>
                 {{/each}}
@@ -144,11 +144,11 @@
                 {{else if settings.logo}}
                     <img class="blog-logo" src="{{settings.logo}}"  onclick={{action "triggerFileDialog"}} alt="logo" data-test-logo-img>
                     <button type="button" class="gh-setting-action-smallimg-delete" {{action "removeImage" "logo"}} data-test-delete-image="logo">
-                        <span>delete</span>
+                        <span>удалить</span>
                     </button>
                 {{else}}
                     <button type="button" class="gh-btn" onclick={{action "triggerFileDialog"}} data-test-image-upload-btn="logo">
-                        <span>Upload Image</span>
+                        <span>Загрузиь изображение</span>
                     </button>
                 {{/if}}
                 <div style="display:none">
@@ -164,8 +164,8 @@
                 as |uploader|
             }}
             <div class="gh-setting-content">
-                <div class="gh-setting-title">Publication cover</div>
-                <div class="gh-setting-desc">An optional large background image for your site</div>
+                <div class="gh-setting-title">Обложка публикации</div>
+                <div class="gh-setting-desc">Дополнительное большое фоновое изображение для вашего сайта</div>
                 {{#each uploader.errors as |error|}}
                     <div class="gh-setting-error" data-test-error="coverImage">{{or error.context error.message}}</div>
                 {{/each}}
@@ -180,7 +180,7 @@
                     </button>
                 {{else}}
                     <button type="button" class="gh-btn" onclick={{action "triggerFileDialog"}} data-test-image-upload-btn="coverImage">
-                        <span>Upload Image</span>
+                        <span>Загрузить изображение</span>
                     </button>
                 {{/if}}
                 <div style="display:none">
@@ -190,11 +190,11 @@
             {{/gh-uploader}}
         </div>
 
-        <div class="gh-setting-header">Social accounts</div>
+        <div class="gh-setting-header">Аккаунт соц. сетей</div>
         <div class="gh-setting">
             <div class="gh-setting-content">
-                <div class="gh-setting-title">Social accounts</div>
-                <div class="gh-setting-desc">Link your social accounts for full structured data and rich card support</div>
+                <div class="gh-setting-title">Аккаунт соц. сетей</div>
+                <div class="gh-setting-desc">Привяжите свои социальные учетные записи для полного структурированных данных и полной поддержки доп. функций</div>
                 {{#liquid-if socialOpen}}
                 <div class="gh-setting-content-extended">
                     {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="facebook"}}
@@ -208,7 +208,7 @@
                             data-test-facebook-input=true
                         }}
                         {{gh-error-message errors=settings.errors property="facebook" data-test-facebook-error=true}}
-                        <p>URL of your publication's Facebook Page</p>
+                        <p>URL вашей публикации на странице Facebook</p>
                     {{/gh-form-group}}
                     {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="twitter"}}
                         {{gh-text-input
@@ -221,7 +221,7 @@
                             data-test-twitter-input=true
                         }}
                         {{gh-error-message errors=settings.errors property="twitter" data-test-twitter-error=true}}
-                        <p>URL of your publication's Twitter profile</p>
+                        <p>URL вашей публикации на странице Twitter</p>
                     {{/gh-form-group}}
                 </div>
                 {{/liquid-if}}
@@ -231,17 +231,17 @@
             </div>
         </div>
 
-        <div class="gh-setting-header">Advanced settings</div>
+        <div class="gh-setting-header">Расширенные настройки</div>
         <div class="gh-setting">
             <div class="gh-setting-content">
-                <div class="gh-setting-title">Make this site private</div>
+                <div class="gh-setting-title">Сделать блог приватным</div>
                 <div class="gh-setting-desc">
-                    Enable protection with simple shared password. All search engine optimization and social features will be disabled.
+                    Включить защиту с помощью простого пароля. Все поисковая оптимизация и социальные функции будут отключены.
 
                     {{#if settings.isPrivate}}
                         <span class="avoid-break-out">
                             <br><br>
-                            A private RSS feed is available at
+                            Частный канал RSS доступен на
                             <a href="{{privateRSSUrl}}" target="_blank" rel="noopener">{{privateRSSUrl}}</a>
                         </span>
                     {{/if}}
@@ -258,7 +258,7 @@
                                 data-test-password-input=true
                             }}
                             {{gh-error-message errors=settings.errors property="password" data-test-password-error=true}}
-                            <p>Set the password for this site</p>
+                            <p>Установите пароль для этого блога</p>
                         {{/gh-form-group}}
                     </div>
                 {{/if}}
