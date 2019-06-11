@@ -99,7 +99,7 @@
                         {{#if showingAll}}
                             {{svg-jar "pages-placeholder" class="gh-pages-placeholder"}}
                             <h3>Вы еще не создали ни одной страницы!</h3>
-                            {{#link-to "editor.new" "page"}}<button type="button" class="gh-btn gh-btn-green gh-btn-lg"><span>Create a new page</span></button>{{/link-to}}
+                            {{#link-to "editor.new" "page"}}<button type="button" class="gh-btn gh-btn-green gh-btn-lg"><span>Создать новую страницу</span></button>{{/link-to}}
                         {{else}}
                             <h3>Нет страниц, соотвествующих выбанному фильтру</h3>
                             {{#link-to "pages.index" (query-params type=null author=null tag=null)}}<button type="button" class="gh-btn gh-btn-lg"><span>Показать все страницы</span></button>{{/link-to}}
