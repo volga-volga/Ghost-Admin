@@ -112,7 +112,7 @@
                 {{else if settings.icon}}
                     <img class="blog-icon" src="{{settings.icon}}" onclick={{action "triggerFileDialog"}} alt="icon" data-test-icon-img>
                     <button type="button" class="gh-setting-action-smallimg-delete" {{action "removeImage" "icon"}} data-test-delete-image="icon">
-                        <span>delete</span>
+                        <span>удалить</span>
                     </button>
                 {{else}}
                     <button type="button" class="gh-btn gh-btn-hover-blue" onclick={{action "triggerFileDialog"}} data-test-image-upload-btn="icon">
@@ -176,7 +176,7 @@
                 {{else if settings.coverImage}}
                     <img class="blog-cover" src="{{settings.coverImage}}"  onclick={{action "triggerFileDialog"}} alt="cover photo" data-test-cover-img>
                     <button type="button" class="gh-setting-action-largeimg-delete" {{action "removeImage" "coverImage"}} data-test-delete-image="coverImage">
-                        <span>delete</span>
+                        <span>удалить</span>
                     </button>
                 {{else}}
                     <button type="button" class="gh-btn" onclick={{action "triggerFileDialog"}} data-test-image-upload-btn="coverImage">
