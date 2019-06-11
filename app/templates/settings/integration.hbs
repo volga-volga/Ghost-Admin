@@ -2,7 +2,7 @@
     <form class="mb15" {{action (perform "save") on="submit"}}>
         <header class="gh-canvas-header">
             <h2 class="gh-canvas-title" data-test-screen-title>
-                {{#link-to "settings.integrations" data-test-link="integrations-back"}}Integrations{{/link-to}}
+                {{#link-to "settings.integrations" data-test-link="integrations-back"}}Интеграции{{/link-to}}
                 <span>{{svg-jar "arrow-right"}}</span>
                 {{integration.name}}
             </h2>
@@ -13,7 +13,7 @@
 
         <div class="flex">
             <div class="flex flex-column mr8 items-start">
-                <label>Icon</label>
+                <label>Иконка</label>
                 <figure class="relative flex items-center h-100 ma0 br4 hide-child ba b--whitegrey-d2 pa8 mt1" style={{iconImageStyle}}>
                     {{#aspect-ratio-box class="flex items-center h-100" ratio="1/1" base="height"}}
                         {{#unless integration.iconImage}}
@@ -36,7 +36,7 @@
                                 class="child absolute top-0 left-0 w-100 h-100 br4 b white text-center bg-black-70 f8"
                                 {{action "triggerIconFileDialog"}}
                             >
-                                Upload
+                                Загрузить
                             </button>
                         {{/if}}
                         <div style="display:none">
@@ -57,7 +57,7 @@
                     hasValidated=integration.hasValidated
                     property="name"
                 }}
-                    <label for="integration_name">Name</label>
+                    <label for="integration_name">Название</label>
                     {{gh-text-input
                         id="integration_name"
                         class="gh-input mt1 mb1"
@@ -76,7 +76,7 @@
                     hasValidated=integration.hasValidated
                     property="decription"
                 }}
-                    <label for="integration_description" class="mt3">Description</label>
+                    <label for="integration_description" class="mt3">Описание</label>
                     {{gh-text-input
                         id="integration_description"
                         class="gh-input mt1"
@@ -96,7 +96,7 @@
         <table class="ma0" style="table-layout: fixed">
             <tbody>
                 <tr class="bb b--lightgrey">
-                    <td class="pa3 w50 fw7">Content API Key</td>
+                    <td class="pa3 w50 fw7">Содержимое API ключа</td>
                     <td class="pa0 truncate">
                         <div class="pa3 relative truncate {{unless copyContentKey.isRunning "hide-child-instant"}}">
                             <span class="midgrey" data-test-text="content-key">
@@ -108,7 +108,7 @@
                                         {{#if copyContentKey.isRunning}}
                                             {{svg-jar "check-circle" class="w3 v-mid mr2"}} Copied
                                         {{else}}
-                                            Copy
+                                            Копировать
                                         {{/if}}
                                     </button>
                                 </div>
@@ -117,7 +117,7 @@
                     </td>
                 </tr>
                 <tr class="bb b--lightgrey">
-                    <td class="pa3 w50 fw7">Admin API Key</td>
+                    <td class="pa3 w50 fw7">Админ. API ключ</td>
                     <td class="pa0">
                         <div class="pa3 relative truncate {{unless copyAdminKey.isRunning "hide-child-instant"}}">
                             <span class="midgrey" data-test-text="admin-key">
@@ -129,7 +129,7 @@
                                         {{#if copyAdminKey.isRunning}}
                                             {{svg-jar "check-circle" class="w3 v-mid mr2"}} Copied
                                         {{else}}
-                                            Copy
+                                            Копировать
                                         {{/if}}
                                     </button>
                                 </div>
@@ -150,7 +150,7 @@
                                         {{#if copyApiUrl.isRunning}}
                                             {{svg-jar "check-circle" class="w3 v-mid mr2"}} Copied
                                         {{else}}
-                                            Copy
+                                            Копировать
                                         {{/if}}
                                     </button>
                                 </div>
@@ -167,10 +167,10 @@
         <table class="ma0 w-100">
             <thead>
                 <tr>
-                    <th class="pa2 pl3 midlightgrey fw4 f8 bg-whitegrey-l2 br3 br--top br--left fw6">Name</th>
-                    <th class="pa2 pl3 midlightgrey fw4 f8 bg-whitegrey-l2 br3 fw6">Event</th>
+                    <th class="pa2 pl3 midlightgrey fw4 f8 bg-whitegrey-l2 br3 br--top br--left fw6">Название</th>
+                    <th class="pa2 pl3 midlightgrey fw4 f8 bg-whitegrey-l2 br3 fw6">Событие</th>
                     <th class="pa2 pl3 midlightgrey fw4 f8 bg-whitegrey-l2 br3 fw6">URL</th>
-                    <th class="pa2 pl3 midlightgrey fw4 f8 bg-whitegrey-l2 br3 fw6">Last triggered</th>
+                    <th class="pa2 pl3 midlightgrey fw4 f8 bg-whitegrey-l2 br3 fw6">Последнее действие</th>
                     <th class="pa2 pl3 bg-whitegrey-l2 br3 br--top br--right"></th>
                 </tr>
             </thead>
@@ -229,7 +229,7 @@
         </table>
     </div>
     <button class="gh-btn gh-btn-red gh-btn-icon mb15 mt15" {{action "confirmIntegrationDeletion"}}>
-        <span> Delete Integration </span>
+        <span> Удалить интеграцию </span>
     </button>
 </section>
 
