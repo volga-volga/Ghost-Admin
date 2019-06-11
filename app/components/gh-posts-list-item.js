@@ -21,14 +21,14 @@ export default Component.extend({
 
     isFeatured: alias('post.featured'),
     isPage: alias('post.page'),
-    isDraft: equal('post.status', 'проект'),
-    isPublished: equal('post.status', 'опубликовано'),
-    isScheduled: equal('post.status', 'по расписанию'),
+    isDraft: equal('post.status', 'draft'),
+    isPublished: equal('post.status', 'published'),
+    isScheduled: equal('post.status', 'scheduled'),
 
     authorNames: computed('post.authors.[]', function () {
         let authors = this.get('post.authors');
 
-        return authors.map(author => author.get('имя') || author.get('email')).join(', ');
+        return authors.map(author => author.get('name') || author.get('email')).join(', ');
     }),
 
     subText: computed('post.{excerpt,customExcerpt,metaDescription}', function () {

@@ -23,10 +23,10 @@ export default Component.extend({
         let templates = this.get('activeTheme.customTemplates') || [];
         let defaultTemplate = {
             filename: '',
-            name: 'По умолчанию'
+            name: 'Default'
         };
 
-        return isEmpty(templates) ? templates : [defaultTemplate, ...templates.sortBy('имя')];
+        return isEmpty(templates) ? templates : [defaultTemplate, ...templates.sortBy('name')];
     }),
 
     matchedSlugTemplate: computed('post.{page,slug}', 'activeTheme.slugTemplates.[]', function () {
@@ -62,13 +62,13 @@ export default Component.extend({
     // tasks
     loadActiveTheme: task(function* () {
         let store = this.store;
-        let themes = yield store.peekAll('тема');
+        let themes = yield store.peekAll('theme');
 
         if (isEmpty(themes)) {
-            themes = yield store.findAll('тема');
+            themes = yield store.findAll('theme');
         }
 
-        let activeTheme = themes.filterBy('активно', true).get('firstObject');
+        let activeTheme = themes.filterBy('active', true).get('firstObject');
 
         this.set('activeTheme', activeTheme);
     })

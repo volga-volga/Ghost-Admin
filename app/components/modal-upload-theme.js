@@ -27,8 +27,8 @@ export default ModalComponent.extend({
     theme: false,
     displayOverwriteWarning: false,
 
-    hideUploader: or('тема', 'displayOverwriteWarning'),
-    currentThemeNames: mapBy('model.themes', 'имя'),
+    hideUploader: or('theme', 'displayOverwriteWarning'),
+    currentThemeNames: mapBy('model.themes', 'name'),
 
     uploadUrl: computed(function () {
         return `${ghostPaths().apiRoot}/themes/upload/`;
@@ -41,14 +41,14 @@ export default ModalComponent.extend({
         return themePackage ? `${themePackage.name} - ${themePackage.version}` : name;
     }),
 
-    fileThemeName: computed('файл', function () {
+    fileThemeName: computed('file', function () {
         let file = this.file;
         return file.name.replace(/\.zip$/, '');
     }),
 
-    canActivateTheme: computed('тема', function () {
+    canActivateTheme: computed('theme', function () {
         let theme = this.theme;
-        return theme && !theme.get('активна');
+        return theme && !theme.get('active');
     }),
 
     init() {
@@ -64,7 +64,7 @@ export default ModalComponent.extend({
 
             let currentThemeNames = this.currentThemeNames;
 
-            this.set('файл', file);
+            this.set('file', file);
 
             let [, extension] = (/(?:\.([^.]+))?$/).exec(file.name);
             let extensions = this.extensions;
@@ -74,7 +74,7 @@ export default ModalComponent.extend({
             }
 
             if (file.name.match(/^casper\.zip$/i)) {
-                return {payload: {errors: [{message: 'Извините, тема Casper по умолчанию не может быть перезаписана.<br>Пожалуйста, переименуйте ваш zip file и попробуйте снова.'}]}};
+                return {payload: {errors: [{message: 'Sorry, the default Casper theme cannot be overwritten.<br>Please rename your zip file and try again.'}]}};
             }
 
             if (!this._allowOverwrite && currentThemeNames.includes(themeName)) {
@@ -107,18 +107,18 @@ export default ModalComponent.extend({
         uploadSuccess(response) {
             this.store.pushPayload(response);
 
-            let theme = this.store.peekRecord('тема', response.themes[0].name);
+            let theme = this.store.peekRecord('theme', response.themes[0].name);
 
             this.set('theme', theme);
 
             if (get(theme, 'warnings.length') > 0) {
-                this.set('validationWarnings', get(theme, 'предупреждения'));
+                this.set('validationWarnings', get(theme, 'warnings'));
             }
 
             // Ghost differentiates between errors and fatal errors
             // You can't activate a theme with fatal errors, but with errors.
             if (get(theme, 'errors.length') > 0) {
-                this.set('validationErrors', get(theme, 'ошибки'));
+                this.set('validationErrors', get(theme, 'errors'));
             }
 
             this.set('hasWarningsOrErrors', this.get('validationErrors.length') || this.get('validationWarnings.length'));
@@ -166,7 +166,7 @@ export default ModalComponent.extend({
         },
 
         reset() {
-            this.set('тема', null);
+            this.set('theme', null);
             this.set('validationWarnings', []);
             this.set('validationErrors', []);
             this.set('fatalValidationErrors', []);

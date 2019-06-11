@@ -62,12 +62,12 @@ export default ModalComponent.extend(ValidationEngine, {
                     err.message = htmlSafe(err.context || err.message);
                 });
 
-                this.errors.add('password', 'Некорректный пароль');
-                this.hasValidated.pushObject('пароль');
+                this.errors.add('password', 'Incorrect password');
+                this.hasValidated.pushObject('password');
                 this.set('authenticationError', error.payload.errors[0].message);
             }
         }), () => {
-            this.hasValidated.pushObject('пароль');
+            this.hasValidated.pushObject('password');
             return false;
         });
     },

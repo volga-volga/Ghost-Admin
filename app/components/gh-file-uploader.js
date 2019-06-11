@@ -22,13 +22,13 @@ export default Component.extend({
     eventBus: service(),
     notifications: service(),
 
-    tagName: 'раздел',
+    tagName: 'section',
     classNames: ['gh-image-uploader'],
     classNameBindings: ['dragClass'],
 
     labelText: 'Select or drag-and-drop a file',
     url: null,
-    paramName: 'файл',
+    paramName: 'file',
     accept: null,
     extensions: null,
     validate: null,
@@ -229,13 +229,13 @@ export default Component.extend({
         }
 
         if (isUnsupportedMediaTypeError(error)) {
-            message = 'Загруженный вами тип файла не поддерживается.';
+            message = 'The file type you uploaded is not supported.';
         } else if (isRequestEntityTooLargeError(error)) {
-            message = 'Загруженный вами файл превысил допустимый размер загружаемого файла.';
+            message = 'The file you uploaded was larger than the maximum file size your server allows.';
         } else if (error.payload && error.payload.errors && !isBlank(error.payload.errors[0].message)) {
             message = htmlSafe(error.payload.errors[0].message);
         } else {
-            message = 'Что-то пошло не так :(';
+            message = 'Something went wrong :(';
         }
 
         this.set('failureMessage', message);

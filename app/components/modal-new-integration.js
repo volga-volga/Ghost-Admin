@@ -14,7 +14,7 @@ export default ModalComponent.extend({
 
     actions: {
         updateName(name) {
-            this.integration.set('имя', name);
+            this.integration.set('name', name);
             this.integration.set('hasValidated', emberA());
             this.integration.errors.clear();
         },
@@ -36,8 +36,8 @@ export default ModalComponent.extend({
                 let {message} = firstError;
 
                 if (message && message.match(/name/i)) {
-                    this.get('integration.errors').add('имя', message);
-                    this.get('integration.hasValidated').pushObject('имя');
+                    this.get('integration.errors').add('name', message);
+                    this.get('integration.hasValidated').pushObject('name');
                     return;
                 }
             }

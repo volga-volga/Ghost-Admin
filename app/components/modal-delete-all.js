@@ -21,12 +21,12 @@ export default ModalComponent.extend({
     },
 
     _unloadData() {
-        this.store.unloadAll('пост');
-        this.store.unloadAll('тег');
+        this.store.unloadAll('post');
+        this.store.unloadAll('tag');
     },
 
     _showSuccess() {
-        this.notifications.showAlert('Весь контент удален из базы данных.', {type: 'успешно', key: 'all-content.delete.success'});
+        this.notifications.showAlert('All content deleted from database.', {type: 'success', key: 'all-content.delete.success'});
     },
 
     _showFailure(error) {

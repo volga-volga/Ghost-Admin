@@ -18,7 +18,7 @@ export default Component.extend({
     updateAuthors() {},
 
     availableAuthorNames: computed('availableAuthors.@each.name', function () {
-        return this.availableAuthors.map(author => author.get('имя').toLowerCase());
+        return this.availableAuthors.map(author => author.get('name').toLowerCase());
     }),
 
     init() {
@@ -26,7 +26,7 @@ export default Component.extend({
         // perform a background query to fetch all users and set `availableAuthors`
         // to a live-query that will be immediately populated with what's in the
         // store and be updated when the above query returns
-        this.store.query('пользователь', {limit: 'all'});
+        this.store.query('user', {limit: 'all'});
         this.set('availableAuthors', this.store.peekAll('user'));
     },
 

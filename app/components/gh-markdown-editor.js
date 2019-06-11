@@ -141,25 +141,25 @@ export default Component.extend(ShortcutsMixin, {
         let toolbar = defaultOptions.toolbar;
 
         if (!this.enableSideBySide) {
-            let sideBySide = toolbar.findBy('имя', 'side-by-side');
+            let sideBySide = toolbar.findBy('name', 'side-by-side');
             let index = toolbar.indexOf(sideBySide);
             toolbar.splice(index, 1);
         }
 
         if (!this.enablePreview) {
-            let preview = toolbar.findBy('имя', 'предосмотр');
+            let preview = toolbar.findBy('name', 'preview');
             let index = toolbar.indexOf(preview);
             toolbar.splice(index, 1);
         }
 
         if (!this.enableHemingway) {
-            let hemingway = toolbar.findBy('имя', 'hemingway');
+            let hemingway = toolbar.findBy('name', 'hemingway');
             let index = toolbar.indexOf(hemingway);
             toolbar.splice(index, 1);
         }
 
         if (this.get('settings.unsplash.isActive')) {
-            let image = toolbar.findBy('имя', 'изображение');
+            let image = toolbar.findBy('name', 'image');
             let index = toolbar.indexOf(image) + 1;
 
             toolbar.splice(index, 0, {

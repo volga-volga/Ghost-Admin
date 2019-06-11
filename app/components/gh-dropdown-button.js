@@ -5,9 +5,9 @@ import {inject as service} from '@ember/service';
 export default Component.extend(DropdownMixin, {
     dropdown: service(),
 
-    tagName: 'кнопка',
-    attributeBindings: ['ссылка', 'роль'],
-    role: 'кнопка',
+    tagName: 'button',
+    attributeBindings: ['href', 'role'],
+    role: 'button',
 
     // matches with the dropdown this button toggles
     dropdownName: null,

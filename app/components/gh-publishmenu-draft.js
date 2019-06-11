@@ -15,7 +15,7 @@ export default Component.extend({
 
     didInsertElement() {
         this.post.set('publishedAtBlogTZ', this.get('post.publishedAtUTC'));
-        this.send('setSaveType', 'опубликовать');
+        this.send('setSaveType', 'publish');
     },
 
     actions: {
@@ -30,7 +30,7 @@ export default Component.extend({
 
                 // when publish: switch to now to avoid validation errors
                 // when schedule: switch to last valid or new minimum scheduled date
-                if (type === 'опубликовать') {
+                if (type === 'publish') {
                     if (!hasDateError && !hasTimeError) {
                         this._publishedAtBlogTZ = this.get('post.publishedAtBlogTZ');
                     } else {
@@ -69,6 +69,6 @@ export default Component.extend({
     // API only accepts dates at least 2 mins in the future, default the
     // scheduled date 5 mins in the future to avoid immediate validation errors
     _getMinDate() {
-        return moment.utc().add(5, 'минуты');
+        return moment.utc().add(5, 'minutes');
     }
 });

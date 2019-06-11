@@ -38,8 +38,8 @@ export default ModalComponent.extend(ValidationEngine, {
 
     actions: {
         setRole(role) {
-            this.set('роль', role);
-            this.errors.remove('роль');
+            this.set('role', role);
+            this.errors.remove('role');
         },
 
         confirm() {
@@ -53,8 +53,8 @@ export default ModalComponent.extend(ValidationEngine, {
         // TODO: either the validator should check the email's existence or
         // the API should return an appropriate error when attempting to save
         return new Promise((resolve, reject) => this._super().then(() => RSVP.hash({
-            users: this.store.findAll('пользователь', {reload: true}),
-            invites: this.store.findAll('пригласить', {reload: true})
+            users: this.store.findAll('user', {reload: true}),
+            invites: this.store.findAll('invite', {reload: true})
         }).then((data) => {
             let existingUser = data.users.findBy('email', email);
             let existingInvite = data.invites.findBy('email', email);
@@ -62,9 +62,9 @@ export default ModalComponent.extend(ValidationEngine, {
             if (existingUser || existingInvite) {
                 this.errors.clear('email');
                 if (existingUser) {
-                    this.errors.add('email', 'Пользователь с таким электронным адресом почты уже существует.');
+                    this.errors.add('email', 'A user with that email address already exists.');
                 } else {
-                    this.errors.add('email', 'Пользователь с таким электронным адресом почты уже был приглашен.');
+                    this.errors.add('email', 'A user with that email address was already invited.');
                 }
 
                 // TODO: this shouldn't be needed, ValidationEngine doesn't mark
@@ -83,14 +83,14 @@ export default ModalComponent.extend(ValidationEngine, {
     },
 
     fetchRoles: task(function * () {
-        let roles = yield this.store.query('роль', {permissions: 'назначить'});
-        let authorRole = roles.findBy('имя', 'Автор');
+        let roles = yield this.store.query('role', {permissions: 'assign'});
+        let authorRole = roles.findBy('name', 'Author');
 
-        this.set('роли', roles);
+        this.set('roles', roles);
         this.set('authorRole', authorRole);
 
         if (!this.role) {
-            this.set('роль', authorRole);
+            this.set('role', authorRole);
         }
     }),
 
@@ -113,8 +113,8 @@ export default ModalComponent.extend(ValidationEngine, {
 
             // If sending the invitation email fails, the API will still return a status of 201
             // but the invite's status in the response object will be 'invited-pending'.
-            if (invite.get('статус') === 'в ожидании') {
-                notifications.showAlert('Письмо с приглашением не было отправлено. Пожалуйста, попробуйте отправить повторно', {type: 'ошибка', key: 'invite.send.failed'});
+            if (invite.get('status') === 'pending') {
+                notifications.showAlert('Invitation email was not sent.  Please try resending.', {type: 'error', key: 'invite.send.failed'});
             } else {
                 notifications.showNotification(notificationText, {key: 'invite.send.success'});
             }

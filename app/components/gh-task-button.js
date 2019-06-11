@@ -24,17 +24,17 @@ const GhTaskButton = Component.extend({
         'isSuccessClass',
         'isFailureClass'
     ],
-    attributeBindings: ['отключено', 'форма', 'тип', 'tabindex'],
+    attributeBindings: ['disabled', 'form', 'type', 'tabindex'],
 
     task: null,
     disabled: false,
     defaultClick: false,
-    buttonText: 'Сохранить',
+    buttonText: 'Save',
     idleClass: '',
     runningClass: '',
-    successText: 'Сохранено',
+    successText: 'Saved',
     successClass: 'gh-btn-green',
-    failureText: 'Повторить',
+    failureText: 'Retry',
     failureClass: 'gh-btn-red',
 
     // Allowed actions

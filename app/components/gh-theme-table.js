@@ -16,7 +16,7 @@ export default Component.extend({
             theme.label = themePackage ? `${themePackage.name}` : theme.name;
             theme.version = themePackage ? `${themePackage.version}` : '1.0';
             theme.package = themePackage;
-            theme.active = get(t, 'активно');
+            theme.active = get(t, 'active');
             theme.isDeletable = !theme.active;
 
             return theme;
@@ -24,7 +24,7 @@ export default Component.extend({
         let duplicateThemes = [];
 
         themes.forEach((theme) => {
-            let duplicateLabels = themes.filterBy('ярлык', theme.label);
+            let duplicateLabels = themes.filterBy('label', theme.label);
 
             if (duplicateLabels.length > 1) {
                 duplicateThemes.pushObject(theme);
@@ -39,7 +39,7 @@ export default Component.extend({
 
         // "(default)" needs to be added to casper manually as it's always
         // displayed and would mess up the duplicate checking if added earlier
-        let casper = themes.findBy('имя', 'casper');
+        let casper = themes.findBy('name', 'casper');
         if (casper) {
             casper.label = `${casper.label} (default)`;
             casper.isDefault = true;
