@@ -13,13 +13,13 @@
         <div class="flex justify-between items-center pt1 mt7">
             <h2 class="f7 fw4 midgrey">
                 {{#if this.searchText}}
-                    Search result
+                    Поиск результатов
                 {{else}}
-                    All members
+                    Все варианты
                     {{#if this.fetchMembers.lastSuccessful}}
                         ({{this.meta.pagination.total}})
                     {{else}}
-                        (Loading...)
+                        (Загрузка...)
                     {{/if}}
                 {{/if}}
             </h2>
