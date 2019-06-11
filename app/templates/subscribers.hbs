@@ -1,7 +1,7 @@
 <section class="gh-canvas">
     <header class="gh-canvas-header">
         <h2 class="gh-canvas-title" data-test-screen-title>
-            Subscribers
+            Подписчики
             <span style="font-weight:200;margin-left:10px;display:inline-block;" data-test-total-subscribers>
                 {{#if this.fetchSubscribers.lastSuccessful}}
                     ({{this.filteredSubscribers.length}})
@@ -25,19 +25,19 @@
                         <th class="gh-subscribers-table-email-cell">
                             {{#link-to class="inline-flex items-center darkgrey" params=(subscribers-query-params "email" this.order this.direction)}}
                                 {{subscribers-sort-icon "email" this.order this.direction}}
-                                Email Address
+                                Email Адрес
                             {{/link-to}}
                         </th>
                         <th class="gh-subscribers-table-date-cell">
                             {{#link-to class="inline-flex items-center darkgrey" params=(subscribers-query-params "created_at" this.order this.direction)}}
                                 {{subscribers-sort-icon "created_at" this.order this.direction}}
-                                Subscription Date
+                                Дата подписки
                             {{/link-to}}
                         </th>
                         <th class="gh-subscribers-table-status-cell">
                             {{#link-to class="inline-flex items-center darkgrey" params=(subscribers-query-params "status" this.order this.direction)}}
                                 {{subscribers-sort-icon "status" this.order this.direction}}
-                                Status
+                                Статус
                             {{/link-to}}
                         </th>
                         <th class="gh-subscribers-table-delete-cell"></th>
