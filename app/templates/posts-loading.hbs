@@ -9,7 +9,7 @@
     <div class="gh-contentfilter">
         <div class="gh-contentfilter-left">
             {{#power-select
-                placeholder="All posts"
+                placeholder="Все посты"
                 selected=selectedType
                 options=availableTypes
                 searchField="name"
@@ -27,7 +27,7 @@
 
             {{#unless session.user.isAuthorOrContributor}}
             {{#power-select
-                placeholder="All authors"
+                placeholder="Все авторы"
                 selected=selectedAuthor
                 options=availableAuthors
                 searchField="name"
@@ -45,7 +45,7 @@
             {{/unless}}
 
             {{#power-select
-                placeholder="All tags"
+                placeholder="Все теги"
                 selected=selectedTag
                 options=availableTags
                 searchField="name"
