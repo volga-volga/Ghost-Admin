@@ -50,9 +50,9 @@
             <li>
                 {{!-- clicking the Content link whilst on the content screen should reset the filter --}}
                 {{#if (eq router.currentRouteName "pages.index")}}
-                    {{#link-to "pages" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="pages"}}{{svg-jar "pages"}}Страницы{{/link-to}}
+                    {{#link-to "pages" (query-params type=null author=null tag=null order=null) classNames="active" data-test-nav="pages"}}{{svg-jar "pages"}}Туториалы{{/link-to}}
                 {{else}}
-                    {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "pages"}}Страницы{{/link-to}}
+                    {{#link-to "pages" data-test-nav="pages"}}{{svg-jar "pages"}}Туториалы{{/link-to}}
                 {{/if}}
             </li>
             {{#if (and feature.members (gh-user-can-admin session.user))}}
